@@ -25,51 +25,6 @@ class FirebaseCRUDVC: UIViewController, UITableViewDataSource, UITableViewDelega
         // Do any additional setup after loading the view.
     }
     
-//    func fetchMoviesFromFirestore() {
-//        let db = Firestore.firestore()
-//        db.collection("movies").getDocuments { (snapshot, error) in
-//            if let error = error {
-//                print("Error fetching documents: \(error)")
-//                return
-//            }
-//
-//            var fetchedMovies: [Movie] = []
-//
-//            for document in snapshot!.documents {
-//                let data = document.data()
-//
-//                do {
-//                    var movie = try Firestore.Decoder().decode(Movie.self, from: data)
-//
-//                    movie.documentID = document.documentID
-//                    fetchedMovies.append(movie)
-//                } catch {
-//                    print("Error decoding movie data: \(error)")
-//                }
-//            }
-//    {
-//        let data = document.data()
-//
-//        if let title = data["title"] as? String,
-//           let studio = data["studio"] as? String {
-//
-//            var movie = Movie(title: title, studio: studio)
-//            movie.movieID = data["movieID"] as? Int
-//            movie.mpaRating = data["mpaRating"] as? String
-//            movie.criticsRating = data["criticsRating"] as? String
-//            movie.imgURL = data["imgURL"] as? String
-//
-//            movie.documentID = document.documentID
-//            fetchedMovies.append(movie)
-//        }
-//    }
-//
-//            DispatchQueue.main.async {
-//                self.movies = fetchedMovies
-//                self.tableView.reloadData()
-//            }
-//        }
-//    }
     
     func fetchMoviesFromFirestore() {
         let db = Firestore.firestore()
@@ -208,8 +163,14 @@ class FirebaseCRUDVC: UIViewController, UITableViewDataSource, UITableViewDelega
         performSegue(withIdentifier: "AddEditSegue", sender: nil)
     }
     
-    @IBAction func closeButton(_ sender: Any) {
+    @IBAction func closeButton(_ unwindSegue : UIStoryboardSegue) {
     }
     
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "unwindToPreviousViewController" {
+//            // Prepare data to pass back if needed
+//        }
+//    }
+
     
 }

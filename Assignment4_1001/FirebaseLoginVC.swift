@@ -41,7 +41,7 @@ class FirebaseLoginVC: UIViewController, UITextFieldDelegate {
                 showPasswordButton.addTarget(self, action: #selector(togglePasswordVisibility), for: .touchUpInside)
 
                 // Create a container view for padding
-                let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 20)) // Width without padding
+                let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 20)) 
                 containerView.addSubview(showPasswordButton)
 
                 passwordTextField.rightView = containerView
@@ -102,7 +102,7 @@ class FirebaseLoginVC: UIViewController, UITextFieldDelegate {
                 Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                     if let error = error {
                         print("Login failed: \(error.localizedDescription)")
-                        self.displayErrorMessage(message: "Authentication Failed")
+                        self.displayErrorMessage(message: "Authentication Failed!")
                         return
                     }
 
@@ -113,7 +113,7 @@ class FirebaseLoginVC: UIViewController, UITextFieldDelegate {
                 }
             } else {
                 print("Username not found.")
-                self.displayErrorMessage(message: "Authentication Failed")
+                self.displayErrorMessage(message: "Authentication Failed!")
             }
         }
     }
