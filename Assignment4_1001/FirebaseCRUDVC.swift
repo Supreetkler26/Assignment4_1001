@@ -164,6 +164,7 @@ class FirebaseCRUDVC: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @IBAction func closeButton(_ unwindSegue : UIStoryboardSegue) {
+        dismiss(animated: true, completion: nil)
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -62,7 +62,7 @@ class AddEditVC: UIViewController {
 
     @IBAction func addEditButton(_ sender: Any) {
         
-        let constantImage = UIImage(named: "jersey_image") // Replace with your image name
+        let constantImage = UIImage(named: "jersey_image")
         imageView.image = constantImage
         
         guard
@@ -146,75 +146,3 @@ class AddEditVC: UIViewController {
 
 }
 
-//{
-//    guard
-//          let movieIDString = movieIDTextField.text,
-//          let movieID = Int(movieIDString),
-//          let title = titleTextField.text,
-//          let studio = studioTextField.text,
-//          let mpaRating = mpaTextField.text,
-//          let criticsRatingString = criticsTextField.text,
-//          let criticsRating = Double(criticsRatingString) else {
-//        print("Invalid data")
-//        return
-//    }
-//
-//    let db = Firestore.firestore()
-//
-//    if let movie = movie {
-//        // Update existing movie
-//        guard let documentID = movie.documentID else {
-//            print("Document ID not available.")
-//            return
-//        }
-//
-//        // Preserve the existing imgURL when updating
-//        var updatedData: [String: Any] = [
-//            "movieID": movieID,
-//            "title": title,
-//            "studio": studio,
-//            "mpaRating": mpaRating,
-//            "criticsRating": criticsRating
-//        ]
-//
-//        // Only update imgURL if it exists
-//        if let imgURL = movie.imgURL {
-//            updatedData["imgURL"] = imgURL
-//        }
-//
-//        let movieRef = db.collection("movies").document(documentID)
-//        movieRef.updateData(updatedData) { [weak self] error in
-//            if let error = error {
-//                print("Error updating movie: \(error)")
-//            } else {
-//                print("Movie updated successfully.")
-//                self?.dismiss(animated: true) {
-//                    self?.movieUpdateCallback?()
-//                }
-//            }
-//        }
-//    } else {
-//        // Add new movie
-//        let newMovie = [
-//            "movieID": Int(movieID),
-//            "title": title,
-//            "studio": studio,
-//            // "year": Int(year),
-//            "mpaRating": mpaRating,
-//            "criticsRating": Double(criticsRating),
-//            "imgURL": "jersey_image"
-//        ] as [String : Any]
-//
-//        var ref: DocumentReference? = nil
-//        ref = db.collection("movies").addDocument(data: newMovie) { [weak self] error in
-//            if let error = error {
-//                print("Error adding movie: \(error)")
-//            } else {
-//                print("Movie added successfully.")
-//                self?.dismiss(animated: true) {
-//                    self?.movieUpdateCallback?()
-//                }
-//            }
-//        }
-//    }
-//}
